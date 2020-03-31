@@ -1,0 +1,15 @@
+Added to your saved items
+
+gabrielecanepa:
+
+@here as I told some of you, the style is absolutely not important for now! Don’t worry if on kitt the examples are all cool and colorful, focus on understanding how Rails works and the concepts we talked about:
+
+1. At every request (every time we go to a page) we go through routes -> controller#action -> view
+
+2. We can send parameters with a form. The form points to an action, which receives the data (taken from the form inputs) inside the params variable
+
+3- Every time I declare a variable with @ inside an action, this variable becomes available in the corresponding view (e.g. I declare @name = "Gabriele" in pages#home -> I can use @name in pages/home.html.erb)
+
+!!! Try to finish the exercises and make your apps work, even without any style. If you finish early and have some time you can then improve the app and add some some custom css to app/assets/stylesheets/application.css (delete everything that’s already there) :cool-doge:
+
+
