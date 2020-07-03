@@ -1,1 +1,15 @@
-<%= @word %>
+<% if @verify != true %>
+<p> Sorry but <strong><%= @word.join.upcase %></strong> can not be built out of <%= @grid.join(", ").upcase %> </p>
+<% end %>
+
+<% if @english_word != true %>
+<p> Sorry but <strong><%= @word.join.upcase %></strong> does not seem to be an English word </p>
+<% end %>
+ <!-- # The word is valid according to the grid and is an English word -->
+<% if (@verify == true && @english_word == true) %>
+<p> Congratulations! The word <strong><%= @word.join.upcase %></strong> is a valid English word! </p>
+<% end %>
+
+<p> <%= link_to "Play again", new_path  %> </p>
+
+
