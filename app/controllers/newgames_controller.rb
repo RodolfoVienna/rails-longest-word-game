@@ -18,11 +18,8 @@ class NewgamesController < ApplicationController
   end
 
   def score
-    # The word is valid according to the grid, but is not a valid English word
     @word = params[:word]
-    response = open("https://wagon-dictionary.herokuapp.com/#{@word}")
-    @json = JSON.parse(response.read)
-    @english_word = @json["found"]
+    @english_word = english(@word)
 
     @word = params[:word].split("")
     @grid = params[:letters].split
@@ -32,5 +29,14 @@ class NewgamesController < ApplicationController
     # CHECK IF EVERY LETTER IN THE @word IS IN THE @grid
     @included = @word.all? { |letter| @grid.include?(letter) }
     @verify = @included && ((@word.count > @grid.count) == false)
+  end
+
+  private
+
+  def english(word)
+    # The word is valid according to the grid, but is not a valid English word
+    response = open("https://wagon-dictionary.herokuapp.com/#{word}")
+    json = JSON.parse(response.read)
+    json["found"]
   end
 end
